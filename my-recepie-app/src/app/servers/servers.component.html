@@ -8,5 +8,8 @@
 <button class="btn btn-primary cstm-btn" [disabled]="!allowNewServer" (click)="onCreateServer()"> Add Server</button>
 <!-- <p>{{ allowNewServer }}</p> --><!-- string interpolation -->
 <!-- <p [innerText]="allowNewServer"></p> --><!-- replace string interpolation with property binding -->
-<p>{{ serverCreationStatus }}</p>
-<app-server></app-server>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated">
+    Server was created, server name is {{ serverName }}
+</p>
+<app-server *ngFor="let server of servers"></app-server>
