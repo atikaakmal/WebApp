@@ -1,14 +1,12 @@
-import { Directive, HostBinding, HostListener } from "@angular/core";
+import { Directive, HostListener, HostBinding } from '@angular/core';
 
-@Directive ({
-    selector: '[appDropdown]' //attribute selector
+@Directive({
+  selector: '[appDropdown]'
 })
 export class DropdownDirective {
+  @HostBinding('class.open') isOpen = false;
 
-    //here we bind the css class that is defined in 'recipe-detail' component
-    @HostBinding('class.open') isOpen = false;
-
-    @HostListener('click') toggleOpen() {
-        this.isOpen = !this.isOpen;
-    }
+  @HostListener('click') toggleOpen() {
+    this.isOpen = !this.isOpen;
+  }
 }
